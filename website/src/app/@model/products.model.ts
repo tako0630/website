@@ -5,7 +5,7 @@ export interface product {
     description: string; // 商品描述
     image_url: string;//圖片位址
     stock_quantity: number; // 商品库存数量
-    category_id: number;//商品種類id
+    category_id: string;//商品種類id
 
 }
 export class product {
@@ -13,9 +13,9 @@ export class product {
     description: string = 'this is init description';
     price: number = 100;
     stock_quantity: number = 10;
-    category_id!: number;
+    category_id!: string;
 
-    constructor(_description: string, _price: number, _stock_quantity: number, _category_id: number) {
+    constructor(_description: string, _price: number, _stock_quantity: number, _category_id: string) {
         this.description = _description;
         this.price = _price;
         this.stock_quantity = _stock_quantity;

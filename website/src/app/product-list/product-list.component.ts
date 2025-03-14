@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { ProductsComponent } from './products/products.component';
 import { product } from '../@model/products.model';
-import { HttpClient } from '@angular/common/http';
+import { ProductService } from '../@service/product.service';
 @Component({
   selector: 'app-product-list',
   imports: [CommonModule, ProductsComponent],
@@ -12,12 +12,14 @@ import { HttpClient } from '@angular/common/http';
 export class ProductListComponent implements OnInit{
   @Input()
   products!: product[];
-  constructor(private http:HttpClient){
+  constructor(private productService: ProductService) {
 
   }
   ngOnInit(): void {
-    this.http.get<product[]>('http://localhost:8080/home').subscribe(data =>{
-      this.products=data;
-    });
+    this.getdata();
+  }
+
+  getdata(){
+    this.productService.gethomepage().subscribe(data=>this.products=data);
   }
 }

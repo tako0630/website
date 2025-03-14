@@ -1,165 +1,57 @@
-/* General Reset */
-* {
+/* 确保页面基本布局和滚动体验 */
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
-}
-
-/* Header */
-.header {
-    background: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.container {
-    margin: 0 auto;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-}
-
-.nav ul {
-    list-style: none;
     display: flex;
+    flex-direction: column; /* 使用 Flexbox 进行垂直布局 */
+    min-height: 100%; /* 页面最小高度为 100% 视口高度 */
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    line-height: 1.6;
 }
 
-.nav ul li {
-    margin-right: 15px;
+/* 主内容需要自动填充高度 */
+main {
+    flex-grow: 1; /* 主体内容扩展以填充空白区域 */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 1rem;
-}
-
-.nav ul li a:hover {
-    color: #007BFF;
-}
-
-/* Banner Section */
+/* Banner 样式 */
 .banner {
-    background: url('/pexels-danielabsi-952670.jpg') no-repeat center center/cover;
+    background: url('/pexels-danielabsi-952670.jpg') no-repeat center center / cover;
     color: #fff;
     text-align: center;
     padding: 100px 20px;
 }
 
-.banner-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+/* 动态内容 */
+.container {
+    margin: 0 auto;
 }
 
-.banner-content p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-.button {
-    background: #007BFF;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-
-.button:hover {
-    background: #0056b3;
-}
-
-/* Products Section */
-.products-section {
-    padding: 50px 20px;
-    text-align: center;
-    background: #f9f9f9;
-}
-
-.section-title {
-    margin-bottom: 20px;
-    font-size: 2rem;
-    color: #333;
-}
-
-
-
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 50px;
-}
-
-.product-card {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    transition: box-shadow 0.3s;
-}
-
-.product-card:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.product-card img {
-    max-width: 100%;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-.product-card h3 {
-    margin: 10px 0;
-    font-size: 1.2rem;
-}
-
-.product-card p {
-    margin: 10px 0;
-    font-size: 1rem;
-    color: #007BFF;
-}
-
-/* Footer */
+/* Footer 始终显示在底部 */
 .footer {
     width: 100%;
     background: #333;
     color: #fff;
     text-align: center;
     padding: 20px 0;
-    margin-top: 50px;
+    flex-shrink: 0; /* 禁止 Footer 被 Flexbox 压缩 */
+    margin-top: auto;
 }
 
-/*基本的RWD*/
+/* 响应式 RWD */
 @media (max-width: 768px) {
     .nav ul {
         display: none;
-        /* 小螢幕時隱藏選單 */
         flex-direction: column;
         align-items: center;
     }
 
-    .menu-toggle {
-        display: block;
-        /* 顯示漢堡選單按鈕 */
-    }
-
     .products-grid {
-      grid-template-columns: 1fr; /* 小螢幕時單欄顯示 */
+        grid-template-columns: 1fr; /* 小屏幕时使用单列布局 */
     }
 }

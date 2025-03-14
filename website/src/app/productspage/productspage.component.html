@@ -1,0 +1,23 @@
+<div class="container-fluid mt-4">
+    <div class="row">
+      <!-- 左侧分类导航栏 -->
+      <div class="col-md-3 bg-light p-3">
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="let category of categories"
+            [class.active]="category === selectedCategory"
+            (click)="onCategorySelect(category)"
+            style="cursor: pointer"
+          >
+            {{ category }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- 右侧商品列表 -->
+      <div class="col-md-9">
+      <app-product-list [products]="filteredProducts"></app-product-list>
+      </div>
+    </div>
+  </div>
