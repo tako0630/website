@@ -1,9 +1,7 @@
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +22,16 @@ public class ProductsController {
     public List<Products> readAll(){
         return productsService.getAll();
     }
-
+    @PostMapping("/products/add")
+    public String create(@RequestBody Products products){
+        return productsService.create(products);
+    }
+    @DeleteMapping("/products/delete/{id}")
+    public String delete(@PathVariable Integer id){
+        return productsService.delete(id);
+    }
+    @PutMapping("/products/update")
+    public String update(@RequestBody Products products){
+        return productsService.update(products);
+    }
 }

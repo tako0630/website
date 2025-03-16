@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../@service/product.service';
 import { product } from '../@model/products.model';
 import { CommonModule } from '@angular/common';
-import { ProductListComponent } from "../product-list/product-list.component";
+import { ProductListComponent } from '../share/component/product-list/product-list.component';
 @Component({
   selector: 'app-productspage',
   imports: [CommonModule, ProductListComponent],

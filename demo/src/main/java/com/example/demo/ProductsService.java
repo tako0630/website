@@ -22,4 +22,10 @@ public class ProductsService {
     public String create(Products products){
         return productsDao.create(products);
     }
+    public String delete(Integer id){
+        return productsDao.delete(id);
+    }
+    public String update(Products products){
+        return productsDao.update(products);
+    }
 }

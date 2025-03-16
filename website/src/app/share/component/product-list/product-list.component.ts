@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit} from '@angular/core';
 import { ProductsComponent } from './products/products.component';
-import { product } from '../@model/products.model';
-import { ProductService } from '../@service/product.service';
+import { product } from '../../../@model/products.model';
+import { ProductService } from '../../../@service/product.service';
 @Component({
   selector: 'app-product-list',
   imports: [CommonModule, ProductsComponent],

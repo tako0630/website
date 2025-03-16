@@ -1,32 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="app.component.scss">
-</head>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="app.component.scss">
 <body>
     <!--上排navbar選單-->
     <app-navbar></app-navbar>
     <!--主要輸出畫面-->
     <main>
-        <section id="home" class="banner">
-            <div class="banner-content container">
-                <h2 style="color: rgb(255, 255, 255);">Welcome to ShopNow</h2>
-                <p style="color: rgb(255, 255, 255);">Your one-stop shop for everything you need.</p>
-                <app-button btnname="ShopNow"></app-button>
-            </div>
-        </section>
-        <section class="container my-4">
-            <router-outlet></router-outlet>
-        </section>
+        <app-banner></app-banner>
+        <router-outlet></router-outlet>
     </main>
-    <footer class="footer bg-dark text-white text-center py-3">
-    <div>
-        <p>© 2025 ShopNow. All Rights Reserved.</p>
-    </div>
-</footer>
+    <app-footer></app-footer>
 </body>
-
 </html>

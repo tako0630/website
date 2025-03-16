@@ -19,28 +19,9 @@ main {
     min-height: 100vh;
 }
 
-/* Banner 样式 */
-.banner {
-    background: url('/pexels-danielabsi-952670.jpg') no-repeat center center / cover;
-    color: #fff;
-    text-align: center;
-    padding: 100px 20px;
-}
-
 /* 动态内容 */
 .container {
     margin: 0 auto;
-}
-
-/* Footer 始终显示在底部 */
-.footer {
-    width: 100%;
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    flex-shrink: 0; /* 禁止 Footer 被 Flexbox 压缩 */
-    margin-top: auto;
 }
 
 /* 响应式 RWD */

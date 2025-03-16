@@ -1,0 +1,21 @@
+<!--商品方格-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <div class="card h-100 shadow">
+    <div class="position-relative" (mouseenter)="btn_show()" (mouseleave)="btn_hide()">
+    <img [src]="product.image_url" class="card-img-top img-fluid" [alt]="product.name">
+      <button
+        class="btn btn-secondary position-absolute top-0 end-0 m-2 shadow d-none"
+        [ngClass]="{'d-none': !isHovered, 'd-block': isHovered}"
+        title="修改商品"
+        (click)="openModal(product)">
+        <i class="bi bi-pencil-square"></i>
+      </button>
+    </div>
+    <app-update [product]="product"></app-update>
+    <div class="card-body text-center">
+      <h5 class="card-title">{{product.name}}</h5>
+      <p class="card-text">${{product.price}}</p>
+      <a href="#" class="btn btn-primary mt-auto">Buy Now</a>
+    </div>
+  </div>

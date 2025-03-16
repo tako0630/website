@@ -1,0 +1,23 @@
+.card-img-top {
+  height: 250px;
+  object-fit: cover;
+}
+
+@media (max-width: 576px) {
+  .card-img-top {
+    height: 200px;
+  }
+}
+button {
+  opacity: 0; /* 初始透明 */
+  transition: opacity 0.3s ease-in-out; /* 平滑過渡 */
+}
+
+button.d-block {
+  opacity: 1; /* 顯示時不透明 */
+}
+
+button.d-none {
+  opacity: 0; /* 隱藏時透明 */
+}
+

@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { product } from './@model/products.model';
 import { NavbarComponent } from "./navbar/navbar.component";
 import { RouterModule } from '@angular/router';
-import { ButtonComponent } from './share/component/button/button.component';
+import { FooterComponent } from "./footer/footer.component";
+import { BannerComponent } from "./banner/banner.component";
 @Component({
   selector: 'app-root',
-  imports: [NavbarComponent,RouterModule,ButtonComponent],
+  imports: [NavbarComponent, RouterModule, FooterComponent, BannerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
