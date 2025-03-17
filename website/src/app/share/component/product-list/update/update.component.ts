@@ -1,4 +1,4 @@
-import { Component, Input,NgModule} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { product } from '../../../../@model/products.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,9 +13,10 @@ import { ProductService } from '../../../../@service/product.service';
 export class UpdateComponent {
   @Input()
   product!:product;
+
   message = '';
   selectedFile!: File;
-
+  selectedProduct!:product;
   constructor(private productService: ProductService) {
     
   }
@@ -26,18 +27,18 @@ export class UpdateComponent {
     const formData = new FormData();
     formData.append('file', this.selectedFile); // 文件字段名為 'file'，後端將以該名字接收
     console.log(this.selectedFile);
+  
     // 發送 POST 請求到後端
-    /*this.http.post('http://localhost:8080/api/upload-image', formData)
-      .subscribe({
+    this.productService.updateImage(this.product.id,formData).subscribe({
         next: (response: any) => {
           console.log('圖片上傳成功', response);
-          alert('圖片上傳成功。圖片 URL 是：' + response.imageUrl);
+          alert('圖片上傳成功。');
         },
         error: (error) => {
           console.error('圖片上傳失敗', error);
           alert('圖片上傳失敗');
         }
-      });*/
+      });
   }
 
   saveProduct(): void {

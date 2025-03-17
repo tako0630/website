@@ -8,11 +8,11 @@
         class="btn btn-secondary position-absolute top-0 end-0 m-2 shadow d-none"
         [ngClass]="{'d-none': !isHovered, 'd-block': isHovered}"
         title="修改商品"
-        (click)="openModal(product)">
+        (click)="openModal(product);se();">
         <i class="bi bi-pencil-square"></i>
       </button>
     </div>
-    <app-update [product]="product"></app-update>
+    
     <div class="card-body text-center">
       <h5 class="card-title">{{product.name}}</h5>
       <p class="card-text">${{product.price}}</p>

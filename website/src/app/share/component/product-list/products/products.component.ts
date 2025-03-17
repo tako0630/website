@@ -1,19 +1,20 @@
-import { ProductService } from './../../../../@service/product.service';
+import { FormsModule } from '@angular/forms';
 import { product } from "../../../../@model/products.model";
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from "@angular/common";
-import { UpdateComponent } from '../update/update.component';
 import * as bootstrap from 'bootstrap';
 @Component({
   selector: 'app-products',
-  imports: [CommonModule,UpdateComponent],
+  imports: [CommonModule,FormsModule],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
 export class ProductsComponent {
   @Input()
-  product!:product; 
-  
+  product!:product;
+  @Output()
+  selectproduct = new EventEmitter<product>();
+  componentKey = Math.random();
   isHovered: boolean = false;
   // 滑鼠進入時執行
   btn_show() {
@@ -26,8 +27,9 @@ export class ProductsComponent {
   }
   openModal(product: any): void {
       // 保存被選中的商品數據
+      
       this.product = { ...product };
-    
+      console.log(this.product);
       const modalElement = document.getElementById('editProductModal');
     
       if (modalElement) {
@@ -38,6 +40,10 @@ export class ProductsComponent {
         });
         modalInstance.show();
       }
+    }
+    se(){
+      this.selectproduct.emit(this.product);
+      
     }
 }
 

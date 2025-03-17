@@ -20,4 +20,7 @@ export class ProductService{
     updateProduct(product:product){
         return this.http.put(this.url+'/products/update',product,{responseType:'text'});
     }
+    updateImage(id:number,file:FormData){
+        return this.http.put('http://localhost:8080/api/upload-image/'+id, file,{responseType:'text'});
+    }
 }
