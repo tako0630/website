@@ -11,7 +11,7 @@ import { ProductListComponent } from '../share/component/product-list/product-li
 })
 export class ProductPageComponent implements OnInit{
   
-  categories = ['All', 'Electronics', 'Fashion', 'Home', 'Toys']; // 商品分类
+  categories = ['All', 'Electronics', 'Fashion', 'Toys', 'Others']; // 商品分类
   selectedCategory = 'All'; // 默认分类
   
   constructor(private productService: ProductService) {}

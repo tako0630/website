@@ -1,6 +1,6 @@
+import { product } from './../@model/products.model';
 import { HttpClient } from "@angular/common/http";
 import {Injectable } from "@angular/core";
-import { product } from "../@model/products.model";
 @Injectable({
     providedIn:'root'
 })
@@ -16,5 +16,8 @@ export class ProductService{
     }
     getProducts(){
         return this.http.get<product[]>(this.url+'/products');
+    }
+    updateProduct(product:product){
+        return this.http.put(this.url+'/products/update',product,{responseType:'text'});
     }
 }

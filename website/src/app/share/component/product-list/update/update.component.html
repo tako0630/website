@@ -49,14 +49,15 @@
   
             <!-- 商品圖片 URL -->
             <div class="mb-3">
-              <label for="productImageURL" class="form-label">商品圖片 URL</label>
+              <label for="productImage" class="form-label">商品圖片 URL</label>
               <input
-                type="url"
-                id="productImageURL"
+                type="file"
+                (change)="onFileSelected($event)"
+                id="productImage"
                 class="form-control"
-                [(ngModel)]="product.image_url"
-                name="productImageURL"
+                name="productImage"
               >
+
             </div>
           </form>
         </div>

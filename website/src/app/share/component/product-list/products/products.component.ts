@@ -13,9 +13,7 @@ import * as bootstrap from 'bootstrap';
 export class ProductsComponent {
   @Input()
   product!:product; 
-  constructor(private productService: ProductService) {
-    
-  }
+  
   isHovered: boolean = false;
   // 滑鼠進入時執行
   btn_show() {
@@ -49,4 +47,4 @@ price: number;  商品价格，保留两位小数
 description: string;  商品描述
 image_url: string;圖片位址
 stock_quantity: number;  商品库存数量
-category_id: number;商品種類id*/
+category_id: string;商品種類*/
