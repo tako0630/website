@@ -8,6 +8,7 @@ public class Products {
     private String image_url;
     private int stock_quantity;//商品库存数量
     private String category_id;
+    private byte[] fileData;
     public int getId() {
         return id;
     }
@@ -49,5 +50,12 @@ public class Products {
     }
     public void setCategory_id(String category_id) {
         this.category_id = category_id;
+    }
+
+    public byte[] getFileData() {
+        return fileData;
+    }
+    public void setFileData(byte[] fileData) {
+        this.fileData = fileData;
     }
 }

@@ -13,6 +13,7 @@ public class ProductsRowMapper implements RowMapper<Products> {
         products.setStock_quantity(rs.getInt("stock_quantity"));
         products.setCategory_id(rs.getString("category_id"));
         products.setImage_url(rs.getString("image_url"));
+        products.setFileData(rs.getBytes("fileData"));
         return products;
     }
 }
