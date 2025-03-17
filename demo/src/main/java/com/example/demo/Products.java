@@ -7,7 +7,7 @@ public class Products {
     private String description;//商品描述
     private String image_url;
     private int stock_quantity;//商品库存数量
-    private int category_id;
+    private String category_id;
     public int getId() {
         return id;
     }
@@ -44,10 +44,10 @@ public class Products {
     public void setStock_quantity(Integer stock_quantity) {
         this.stock_quantity = stock_quantity;
     }
-    public int getCategory_id() {
+    public String getCategory_id() {
         return category_id;
     }
-    public void setCategory_id(Integer category_id) {
+    public void setCategory_id(String category_id) {
         this.category_id = category_id;
     }
 }
