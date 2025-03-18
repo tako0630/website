@@ -9,6 +9,7 @@ public class Products {
     private int stock_quantity;//商品库存数量
     private String category_id;
     private byte[] fileData;
+    private String fileType;
     public int getId() {
         return id;
     }
@@ -57,5 +58,11 @@ public class Products {
     }
     public void setFileData(byte[] fileData) {
         this.fileData = fileData;
+    }
+    public String getFileType() {
+        return fileType;
+    }
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
     }
 }

@@ -14,6 +14,8 @@ public class ProductsRowMapper implements RowMapper<Products> {
         products.setCategory_id(rs.getString("category_id"));
         products.setImage_url(rs.getString("image_url"));
         products.setFileData(rs.getBytes("fileData"));
+        products.setFileType(rs.getString("fileType"));
         return products;
     }
+
 }
