@@ -6,7 +6,8 @@ export interface product {
     image_url: string;//圖片位址
     stock_quantity: number; // 商品库存数量
     category_id: string;//商品種類id
-
+    fileData?:Blob;
+    fileType?:string;
 }
 export class product {
     id!: number;
@@ -14,7 +15,8 @@ export class product {
     price: number = 100;
     stock_quantity: number = 10;
     category_id!: string;
-
+    fileData?:Blob;
+    fileType?:string;
     constructor(_description: string, _price: number, _stock_quantity: number, _category_id: string) {
         this.description = _description;
         this.price = _price;

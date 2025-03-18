@@ -3,7 +3,7 @@
 
   <div class="card h-100 shadow">
     <div class="position-relative" (mouseenter)="btn_show()" (mouseleave)="btn_hide()">
-    <img [src]="product.image_url" class="card-img-top img-fluid" [alt]="product.name">
+    <img [src]="'http://localhost:8080/api/image/'+product.id" class="card-img-top img-fluid" [alt]="product.name">
       <button
         class="btn btn-secondary position-absolute top-0 end-0 m-2 shadow d-none"
         [ngClass]="{'d-none': !isHovered, 'd-block': isHovered}"

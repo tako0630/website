@@ -1,6 +1,6 @@
 import { FormsModule } from '@angular/forms';
 import { product } from "../../../../@model/products.model";
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import * as bootstrap from 'bootstrap';
 @Component({
@@ -9,7 +9,8 @@ import * as bootstrap from 'bootstrap';
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
-export class ProductsComponent {
+export class ProductsComponent{
+  
   @Input()
   product!:product;
   @Output()

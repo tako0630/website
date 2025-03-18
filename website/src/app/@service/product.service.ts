@@ -23,4 +23,7 @@ export class ProductService{
     updateImage(id:number,file:FormData){
         return this.http.put('http://localhost:8080/api/upload-image/'+id, file,{responseType:'text'});
     }
+    getImage(id:number){
+        return this.http.get('http://localhost:8080/api/image/'+id);
+    }
 }

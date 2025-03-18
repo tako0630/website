@@ -26,7 +26,7 @@ export class UpdateComponent {
   uploadImage() {
     const formData = new FormData();
     formData.append('file', this.selectedFile); // 文件字段名為 'file'，後端將以該名字接收
-    console.log(this.selectedFile);
+    //console.log(this.selectedFile);
   
     // 發送 POST 請求到後端
     this.productService.updateImage(this.product.id,formData).subscribe({
