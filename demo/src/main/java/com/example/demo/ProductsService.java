@@ -1,7 +1,9 @@
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -19,13 +21,13 @@ public class ProductsService {
     public List<Products> getAll(){
         return productsDao.getALL();
     }
-    public String create(Products products){
-        return productsDao.create(products);
+    public Products create(Products products,MultipartFile file){
+        return productsDao.create(products,file);
     }
     public String delete(Integer id){
         return productsDao.delete(id);
     }
-    public String update(Products products){
+    public ResponseEntity<String> update(Products products){
         return productsDao.update(products);
     }
 }

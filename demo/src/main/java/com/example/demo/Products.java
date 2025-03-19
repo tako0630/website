@@ -5,7 +5,6 @@ public class Products {
     private String name;//商品名称
     private double price;//商品价格，保留两位小数
     private String description;//商品描述
-    private String image_url;
     private int stock_quantity;//商品库存数量
     private String category_id;
     private byte[] fileData;
@@ -33,12 +32,6 @@ public class Products {
     }
     public void setDescription(String description) {
         this.description = description;
-    }
-    public String getImage_url() {
-        return image_url;
-    }
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
     }
     public int getStock_quantity() {
         return stock_quantity;
