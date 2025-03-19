@@ -23,7 +23,7 @@ public class ProductsDao {
         }
     }
     public List<Products> getRandom(){
-        String sql = "SELECT * FROM product ORDER BY RAND() LIMIT 4";
+        String sql = "SELECT * FROM product LIMIT 4";
         List<Products> list = jdbc.query(sql,new ProductsRowMapper());
         if(!list.isEmpty()){
             return list;
