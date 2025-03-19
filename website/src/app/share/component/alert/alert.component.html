@@ -1,0 +1,9 @@
+<div *ngIf="show" class="position-fixed top-50 start-50 translate-middle-x bg-dark text-white p-3 rounded shadow" role="alert">
+    <p>{{ alertMessage }}</p>
+
+    <div *ngIf="isLoading" class="d-flex justify-content-center mt-2">
+        <div class="spinner-border text-light" role="status">
+          <span class="visually-hidden">上傳中...</span>
+        </div>
+      </div>
+</div>

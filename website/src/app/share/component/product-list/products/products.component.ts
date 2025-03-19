@@ -1,6 +1,6 @@
+import { product } from './../../../../@model/products.model';
 import { FormsModule } from '@angular/forms';
-import { product } from "../../../../@model/products.model";
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import * as bootstrap from 'bootstrap';
 @Component({
@@ -17,6 +17,9 @@ export class ProductsComponent{
   selectproduct = new EventEmitter<product>();
   componentKey = Math.random();
   isHovered: boolean = false;
+  @Input()
+  lastupdate:number = new Date().getTime();
+
   // 滑鼠進入時執行
   btn_show() {
     this.isHovered = true;
@@ -31,6 +34,7 @@ export class ProductsComponent{
       
       this.product = { ...product };
       console.log(this.product);
+      console.log(this.lastupdate);
       const modalElement = document.getElementById('editProductModal');
     
       if (modalElement) {
@@ -44,7 +48,16 @@ export class ProductsComponent{
     }
     se(){
       this.selectproduct.emit(this.product);
+    }
+
+    handleImageError(event:any){
+      event.target.src = "error.png"
+    }
+    getImage(product:product):string{
+      console.log(`http://localhost:8080/api/image/${product.id}?t=${this.lastupdate}`);
       
+      return `http://localhost:8080/api/image/${product.id}?t=${this.lastupdate}`;
+      //"'http://localhost:8080/api/image/'+product.id+'?t='+lastupdate"
     }
 }
 

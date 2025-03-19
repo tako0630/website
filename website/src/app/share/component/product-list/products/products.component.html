@@ -3,14 +3,23 @@
 
   <div class="card h-100 shadow">
     <div class="position-relative" (mouseenter)="btn_show()" (mouseleave)="btn_hide()">
-    <img [src]="'http://localhost:8080/api/image/'+product.id" class="card-img-top img-fluid" [alt]="product.name">
+    <img [src]="getImage(product)" class="card-img-top img-fluid" [alt]="product.name"
+    (error)="handleImageError($event)">
       <button
-        class="btn btn-secondary position-absolute top-0 end-0 m-2 shadow d-none"
+        class="btn btn-danger position-absolute  top-0 end-0 m-2 shadow d-none"
+        [ngClass]="{'d-none': !isHovered, 'd-block': isHovered}"
+        title="刪除商品"
+        >
+        <i class="bi bi-x-lg"></i>
+      </button>
+      <button
+        class="btn btn-secondary position-absolute top-0  m-2 shadow d-none"
         [ngClass]="{'d-none': !isHovered, 'd-block': isHovered}"
         title="修改商品"
         (click)="openModal(product);se();">
         <i class="bi bi-pencil-square"></i>
       </button>
+      
     </div>
     
     <div class="card-body text-center">
