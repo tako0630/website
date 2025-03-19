@@ -1,8 +1,8 @@
 import { product } from './../../../../@model/products.model';
 import { FormsModule } from '@angular/forms';
-import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from "@angular/common";
-import * as bootstrap from 'bootstrap';
+import { ProductService } from '../../../../@service/product.service';
 @Component({
   selector: 'app-products',
   imports: [CommonModule,FormsModule],
@@ -10,7 +10,10 @@ import * as bootstrap from 'bootstrap';
   styleUrl: './products.component.scss'
 })
 export class ProductsComponent{
-  
+  @Input()
+  products!:product[];
+  @Output()
+  productsChange = new EventEmitter();
   @Input()
   product!:product;
   @Output()
@@ -20,6 +23,7 @@ export class ProductsComponent{
   @Input()
   lastupdate:number = new Date().getTime();
 
+  constructor(private productService:ProductService){}
   // 滑鼠進入時執行
   btn_show() {
     this.isHovered = true;
@@ -29,23 +33,7 @@ export class ProductsComponent{
   btn_hide() {
     this.isHovered = false;
   }
-  openModal(product: any): void {
-      // 保存被選中的商品數據
-      
-      this.product = { ...product };
-      console.log(this.product);
-      console.log(this.lastupdate);
-      const modalElement = document.getElementById('editProductModal');
-    
-      if (modalElement) {
-        // 手动初始化并打开 Modal
-        const modalInstance = new bootstrap.Modal(modalElement, {
-          backdrop: true,
-          keyboard: true,
-        });
-        modalInstance.show();
-      }
-    }
+  
     se(){
       this.selectproduct.emit(this.product);
     }
@@ -54,10 +42,15 @@ export class ProductsComponent{
       event.target.src = "error.png"
     }
     getImage(product:product):string{
-      console.log(`http://localhost:8080/api/image/${product.id}?t=${this.lastupdate}`);
-      
       return `http://localhost:8080/api/image/${product.id}?t=${this.lastupdate}`;
       //"'http://localhost:8080/api/image/'+product.id+'?t='+lastupdate"
+    }
+    delete(id:number){
+      let s = '';
+      this.products = this.products.filter(p => p.id !== this.product.id);
+      this.productsChange.emit(this.products);
+      this.productService.delete(id).subscribe(data =>s =data);
+      console.log(s);
     }
 }
 

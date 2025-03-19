@@ -3,7 +3,6 @@ export interface product {
     name: string; // 商品名称
     price: number; // 商品价格，保留两位小数
     description: string; // 商品描述
-    image_url: string;//圖片位址
     stock_quantity: number; // 商品库存数量
     category_id: string;//商品種類id
     fileData?:Blob;

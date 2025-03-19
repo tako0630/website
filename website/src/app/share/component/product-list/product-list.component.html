@@ -1,9 +1,14 @@
 <div class="row mt-5">
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 p-1" *ngFor="let product of products; trackBy:trackById">
         <!-- 單個商品的呈現 -->
-        <app-products [product]="product" (selectproduct)="selectproduct($event)" [lastupdate]="newupdate"></app-products>
+        <app-products [(products)]="products" [product]="product" (selectproduct)="selectproduct($event,true)" [lastupdate]="newupdate"></app-products>
         
     </div>
+    <app-addproduct *ngIf="show" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 p-1" (p)="selectproduct($event,false)"></app-addproduct>
 </div>
-<app-update *ngIf="product" [product]="product" (refresh)="re()"></app-update>
+<app-update *ngIf="product" 
+[product]="product" 
+[(products)]="products"
+(refresh)="re($event)" 
+[isediting]="isediting"></app-update>
 

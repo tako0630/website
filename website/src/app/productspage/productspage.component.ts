@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ProductService } from '../@service/product.service';
 import { product } from '../@model/products.model';
 import { CommonModule } from '@angular/common';
@@ -14,7 +14,7 @@ export class ProductPageComponent implements OnInit{
   categories = ['All', 'Electronics', 'Fashion', 'Toys', 'Others']; // 商品分类
   selectedCategory = 'All'; // 默认分类
   
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService,private cdr :ChangeDetectorRef) {}
   products:product[] = [];
   
   filteredProducts = this.products;
@@ -22,8 +22,9 @@ export class ProductPageComponent implements OnInit{
     this.productService.getProducts().subscribe(data=>{
       this.products=data;
       this.filteredProducts = this.products;
+      this.cdr.detectChanges();
     }); // 全部商品
-
+    
   }
 
   // 切换分类时触发
