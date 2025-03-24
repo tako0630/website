@@ -1,15 +1,16 @@
 import { product } from './../../../../@model/products.model';
 import { FormsModule } from '@angular/forms';
-import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from "@angular/common";
 import { ProductService } from '../../../../@service/product.service';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-products',
   imports: [CommonModule,FormsModule],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
-export class ProductsComponent{
+export class ProductsComponent implements OnInit{
   @Input()
   products!:product[];
   @Output()
@@ -22,8 +23,19 @@ export class ProductsComponent{
   isHovered: boolean = false;
   @Input()
   lastupdate:number = new Date().getTime();
-
-  constructor(private productService:ProductService){}
+  @Output()
+  mtype = new EventEmitter();
+  mode!:String;
+  constructor(private productService:ProductService,private route:ActivatedRoute){}
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.mode = params['mode'] || 'view'; // 如果沒有 mode，預設為 view
+      if(this.mode=='view')
+        this.mtype.emit(true);
+      else
+        this.mtype.emit(false);
+    });
+  }
   // 滑鼠進入時執行
   btn_show() {
     this.isHovered = true;

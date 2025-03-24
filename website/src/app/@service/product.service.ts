@@ -6,7 +6,7 @@ import {Injectable } from "@angular/core";
 })
 
 export class ProductService{
-    url :string = 'http://localhost:8080';
+    url :string = 'http://localhost:8080/api';
     products: product[]=[];
     constructor(private http:HttpClient){
     

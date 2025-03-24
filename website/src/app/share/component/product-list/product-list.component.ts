@@ -21,6 +21,7 @@ export class ProductListComponent implements OnInit{
   @ViewChild(ProductsComponent) 
   productComponents!: product[];
   isediting:boolean = false;
+  mode:boolean=false;
   product:product={'category_id':'1','description':'','id':1,
     'name':'','price':1,'stock_quantity':1};//初始數值
   constructor(private productService: ProductService,private cdr: ChangeDetectorRef) {
@@ -76,5 +77,7 @@ export class ProductListComponent implements OnInit{
       modalInstance.show();
     }
   }
-
+  mtype(type:boolean){
+    this.mode = !type;
+  }
 }

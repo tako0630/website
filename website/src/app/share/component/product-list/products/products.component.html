@@ -7,7 +7,7 @@
     (error)="handleImageError($event)">
       <button
         class="btn btn-danger position-absolute  top-0 end-0 m-2 shadow d-none"
-        [ngClass]="{'d-none': !isHovered, 'd-block': isHovered}"
+        [ngClass]="{'d-none': !isHovered && mode=='edit', 'd-block': isHovered && mode=='edit'}"
         title="刪除商品"
         (click)="delete(product.id)"
         >
@@ -15,7 +15,7 @@
       </button>
       <button
         class="btn btn-secondary position-absolute top-0  m-2 shadow d-none"
-        [ngClass]="{'d-none': !isHovered, 'd-block': isHovered}"
+        [ngClass]="{'d-none': !isHovered && mode=='edit', 'd-block': isHovered && mode=='edit'}"
         title="修改商品"
         (click)="se()">
         <i class="bi bi-pencil-square"></i>

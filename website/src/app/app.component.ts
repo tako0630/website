@@ -12,8 +12,6 @@ import { BannerComponent } from "./banner/banner.component";
 })
 export class AppComponent implements OnInit{
   title = 'website';
-  status = 0;
-  products : product[] = [];
  
   ngOnInit(): void {
   }

@@ -3,6 +3,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ProductPageComponent } from './productspage/productspage.component';
 
 export const routes: Routes = [
-  {path:'',component:HomepageComponent},
-  {path:'p',component:ProductPageComponent}
+  {path:'home',component:HomepageComponent},
+  {path:'products',component:ProductPageComponent},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
