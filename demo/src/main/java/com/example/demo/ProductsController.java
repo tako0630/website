@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api")
 public class ProductsController {
     @Autowired
     private ProductsService productsService;
